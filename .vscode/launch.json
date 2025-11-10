@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug ESBMC-AI Addon",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "esbmc_ai",
+            "args": [
+                "my_addon"  // TEMPLATE: Replace with your command name
+            ],
+            "console": "integratedTerminal",
+            "env": {
+                "ESBMCAI_CONFIG_FILE": "${workspaceFolder}/config.toml"
+            },
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

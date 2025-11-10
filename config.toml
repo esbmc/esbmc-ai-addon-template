@@ -1,0 +1,10 @@
+# TEMPLATE: Configuration file for ESBMC-AI with your addon. ESBMC-AI knows to
+# use this config file by the env var ESBMCAI_CONFIG_FILE 
+# (set in pyproject.toml for convenience)
+
+# Set dev_mode to true during development
+dev_mode = true
+
+# TEMPLATE: Replace "my_addon" with your addon's module name
+# This tells ESBMC-AI to load your addon
+addon_modules = ["my_addon"]

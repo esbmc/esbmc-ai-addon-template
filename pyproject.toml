@@ -1,0 +1,78 @@
+# TEMPLATE: Update all fields marked with TEMPLATE comments
+[project]
+name = "my_addon" # TEMPLATE: Change to your addon name (e.g., "my-esbmc-addon")
+description = "Template for ESBMC-AI addons." # TEMPLATE: Update description
+readme = "README.md"
+requires-python = ">=3.12"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Your Name", email = "your.email@example.com" }, # TEMPLATE: Add your info
+]
+keywords = [
+    "AI",
+    "LLM",
+    "esbmc",
+    "esbmc-ai",
+    "addon",
+] # TEMPLATE: Add relevant keywords
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = [
+    # TEMPLATE: Update ESBMC-AI version to target
+    "esbmc-ai>=0.6.0",
+    # TEMPLATE: Add your addon's dependencies below
+    # Example dependencies:
+    # "numpy",
+    # "rapidfuzz",
+]
+# https://hatch.pypa.io/latest/version/
+dynamic = ["version"]
+
+[project.urls]
+# TEMPLATE: Update URLs to point to your repository
+Documentation = "https://github.com/yourusername/your-addon/wiki"
+Homepage = "https://github.com/yourusername/your-addon"
+Issues = "https://github.com/yourusername/your-addon/issues"
+"Source Code" = "https://github.com/yourusername/your-addon"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "my_addon/__about__.py" # TEMPLATE: Update if you rename the module
+
+[tool.hatch.envs.default]
+description = "Default environment. Used for development."
+dependencies = [
+    "pylint",
+    "ipykernel",
+    "py",        # Dependency of pytest-regtest
+    "twine",
+    "pydeps",
+]
+
+pre-install-commands = [
+    # Preinstall hook for PyTorch - installs CPU-only version if CPU_ONLY=true
+    '[ -n "$CPU_ONLY" ] && pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu',
+]
+
+[tool.hatch.envs.default.env-vars]
+ESBMCAI_CONFIG_FILE = "./config.toml"
+
+[tool.hatch.envs.hatch-test]
+description = "Used when running pytest. Using hatch test..."
+extra-dependencies = [
+    "pytest",
+    "pytest-subtests",
+    "pytest-cov",
+    "pytest-regtest",
+]
+
+[tool.hatch.build.targets.sdist]
+include = ["/my_addon"] # TEMPLATE: Update if you rename the module
+
+[tool.hatch.build.targets.wheel]
+include = ["/my_addon"] # TEMPLATE: Update if you rename the module
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
