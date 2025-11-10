@@ -18,7 +18,3 @@ See template files for detailed examples and inline documentation.
 - 🌐 [ESBMC-AI Website](https://esbmc.github.io/esbmc-ai/)
 - 💻 [GitHub Repository](https://github.com/esbmc/esbmc-ai)
 - 💬 [Issues & Support](https://github.com/esbmc/esbmc-ai/issues)
-
-## License
-
-See `LICENSE` file for details.
